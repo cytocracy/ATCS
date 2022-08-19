@@ -4,21 +4,21 @@
 
 using namespace std;
 
-vector<double> quadratic(int a, int b, int c);
+vector<double> quadratic(double a, double b, double c);
 
 int main()
 {
     cout << endl
-         << "Enter int a: ";
-    int a, b, c;
+         << "Enter double a: ";
+    double a, b, c;
     cin >> a;
     cin.ignore();
 
-    cout << "int b: ";
+    cout << "double b: ";
     cin >> b;
     cin.ignore();
 
-    cout << "int c: ";
+    cout << "double c: ";
     cin >> c;
     cin.ignore();
 
@@ -36,7 +36,7 @@ int main()
     return 0;
 }
 
-vector<double> quadratic(int a, int b, int c)
+vector<double> quadratic(double a, double b, double c)
 {
     vector<double> x;
 

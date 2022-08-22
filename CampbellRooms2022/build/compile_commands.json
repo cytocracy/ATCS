@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Theo/Development/ATCS/CampbellRooms2022/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\CampbellRooms2022.dir\\main.cpp.obj -c C:\\Theo\\Development\\ATCS\\CampbellRooms2022\\main.cpp",
+  "file": "C:/Theo/Development/ATCS/CampbellRooms2022/main.cpp"
+}
+]

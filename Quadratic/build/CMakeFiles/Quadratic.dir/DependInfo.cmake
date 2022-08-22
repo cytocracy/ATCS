@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Theo/Development/ATCS/Quadratic/main.cpp" "CMakeFiles/Quadratic.dir/main.cpp.obj" "gcc" "CMakeFiles/Quadratic.dir/main.cpp.obj.d"
+  "D:/Development/ATCS/Quadratic/main.cpp" "CMakeFiles/Quadratic.dir/main.cpp.obj" "gcc" "CMakeFiles/Quadratic.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.

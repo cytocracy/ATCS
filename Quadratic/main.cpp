@@ -9,6 +9,9 @@ vector<double> quadratic(double a, double b, double c);
 int main()
 {
     cout << endl
+         << "Use form ax^2 + bx + c = 0";
+
+    cout << endl
          << "Enter double a: ";
     double a, b, c;
     cin >> a;
@@ -21,6 +24,12 @@ int main()
     cout << "double c: ";
     cin >> c;
     cin.ignore();
+
+    if (a == 0)
+    {
+        cout << "a cannot be 0";
+        return 0;
+    }
 
     vector<double> answers = quadratic(a, b, c);
     if (answers.size() == 0)

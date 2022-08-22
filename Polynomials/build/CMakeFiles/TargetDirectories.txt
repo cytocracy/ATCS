@@ -1,0 +1,3 @@
+C:/Theo/Development/ATCS/Polynomials/build/CMakeFiles/Polynomials.dir
+C:/Theo/Development/ATCS/Polynomials/build/CMakeFiles/edit_cache.dir
+C:/Theo/Development/ATCS/Polynomials/build/CMakeFiles/rebuild_cache.dir

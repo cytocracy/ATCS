@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Theo/Development/ATCS/Polynomials/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++14 -o CMakeFiles\\Polynomials.dir\\main.cpp.obj -c C:\\Theo\\Development\\ATCS\\Polynomials\\main.cpp",
+  "file": "C:/Theo/Development/ATCS/Polynomials/main.cpp"
+}
+]

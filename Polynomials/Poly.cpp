@@ -5,6 +5,7 @@
 using namespace std;
 
 Poly::Poly() {}
+
 Poly::Poly(double c, int e) {
     Term t;
     t.coeff = c;
@@ -13,12 +14,14 @@ Poly::Poly(double c, int e) {
 }
 
 void Poly::add(Poly other) {
-    
+    for (Term t : other.terms){
+        add(t);
+    }
 }
 
 void Poly::multiply(double c) {
-    for (Term t: terms){
-        t.coeff *= c;
+    for (int i=0; i<terms.size(); i++) {
+        terms[i].coeff *= c;
     }
 }
 double Poly::eval(int x) const {
@@ -36,4 +39,30 @@ string Poly::tostring() const {
 }
 Poly::~Poly() {
     //we're done
+}
+
+void Poly::add(Poly::Term term)
+{
+    if (term.exp > terms[0].exp)
+        terms.insert(terms.begin(), term);
+    else
+    {
+        for (int i = 0; i < terms.size(); i++)
+        {
+            if (terms[i].exp < term.exp)
+            {
+                terms.insert(terms.begin() + i, term);
+                return;
+            } else if (terms[i].exp == term.exp){
+                terms[i].coeff += term.coeff;
+                return;
+            }
+        }
+        terms.push_back(term);
+    }
+}
+
+const Poly &Poly::operator+=(const Poly &rhs){
+    add(rhs);
+    return *this;
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Poly.h"
 
 using namespace std;
 
@@ -7,7 +8,8 @@ int main() {
     cout << "hi";
     Poly p(3,7);
     Poly q(2,5);
-    p.add(q);
+//    p.add(q);
+    p += q;
     string output = p.tostring();
     cout << output << endl;
     p.multiply(2);

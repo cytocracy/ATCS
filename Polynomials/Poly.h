@@ -4,7 +4,6 @@
 #ifndef POLYNOMIALS_POLY_H
 #define POLYNOMIALS_POLY_H
 
-#include <vector>
 using namespace std;
 
 class Poly {
@@ -16,12 +15,15 @@ class Poly {
         double eval(int x) const;
         string tostring() const;
         ~Poly();
+
+        const Poly& operator += (const Poly& rhs);
     private:
         struct Term {
             double coeff;
             int exp;
         };
         vector<Term> terms;
+        void add(Term term);
 };
 
 #endif //POLYNOMIALS_POLY_H

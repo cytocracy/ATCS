@@ -44,17 +44,35 @@ int getChoice() {
 }
 
 void searchByRoom() {
-    cout << "Room" << endl;
+    string num;
+    cout << "Enter room number: ";
+    getline(cin, num);
+    bool found = false;
+    for (RoomAssignment r : assignments) {
+        if (r.number == num) {
+            found = true;
+            cout << r.teacher << " ";
+        }
+    }
+    if (!found) {
+        cout << "No teacher found" << endl;
+    }
+    cout << endl;
 }
 
 void searchByTeacher() {
     string who;
     cout << "Enter the name of a teacher: ";
     getline(cin, who);
+    bool found = false;
     for (RoomAssignment r : assignments) {
         if (r.teacher == who) {
+            found = true;
             cout << r.number << " ";
         }
+    }
+    if (!found) {
+        cout << "No room found" << endl;
     }
     cout << endl;
 }

@@ -55,7 +55,7 @@ void searchByRoom() {
         }
     }
     if (!found) {
-        cout << "No teacher found" << endl;
+        cout << "No teacher found";
     }
     cout << endl;
 }
@@ -72,7 +72,7 @@ void searchByTeacher() {
         }
     }
     if (!found) {
-        cout << "No room found" << endl;
+        cout << "No room found";
     }
     cout << endl;
 }

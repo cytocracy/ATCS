@@ -1,3 +1,0 @@
-C:/Theo/Development/ATCS/CampbellRooms2022/build/CMakeFiles/CampbellRooms2022.dir
-C:/Theo/Development/ATCS/CampbellRooms2022/build/CMakeFiles/edit_cache.dir
-C:/Theo/Development/ATCS/CampbellRooms2022/build/CMakeFiles/rebuild_cache.dir

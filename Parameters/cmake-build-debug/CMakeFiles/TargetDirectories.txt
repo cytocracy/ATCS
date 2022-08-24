@@ -1,3 +1,0 @@
-C:/Theo/Development/ATCS/Parameters/cmake-build-debug/CMakeFiles/Parameters.dir
-C:/Theo/Development/ATCS/Parameters/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Theo/Development/ATCS/Parameters/cmake-build-debug/CMakeFiles/rebuild_cache.dir

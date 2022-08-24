@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/Theo/Development/ATCS/Test/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++14 -o CMakeFiles\\Test.dir\\main.cpp.obj -c C:\\Theo\\Development\\ATCS\\Test\\main.cpp",
-  "file": "C:/Theo/Development/ATCS/Test/main.cpp"
-}
-]

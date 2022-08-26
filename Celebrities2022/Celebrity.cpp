@@ -4,6 +4,7 @@
 
 #include "Celebrity.h"
 #include <iostream>
+#include <vector>
 
 Celebrity::Celebrity(string name, string clues) {
 

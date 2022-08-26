@@ -2,6 +2,7 @@
 // Created by Theo Parker on 8/25/2022.
 //
 #include <iostream>
+#include <vector>
 
 using namespace std;
 

@@ -1,19 +1,23 @@
 #include <iostream>
 #include <chrono>
+#include <fstream>
 #include "Celebrity.h"
 
 using namespace std;
 
 int main() {
 
-    Celebrity c = Celebrity("Lamont Quattlebaum", "bald,dean of students,married to Wendy");
-    Celebrity c2 = Celebrity("Kevin Morris", "Leah's dad,Ryan's dad,teaches this class,SHP swim coach,does NYT crossword puzzle daily");
-    Celebrity c3 = Celebrity("Oprah Winfrey", "famous talk show host,gave everyone a car");
-
+    ifstream f("celebrities.txt");
+    string line;
     vector<Celebrity> celebrities;
-    celebrities.push_back(c);
-    celebrities.push_back(c2);
-    celebrities.push_back(c3);
+
+    while(!f.eof()){
+        getline(f, line);
+        string name = line.substr(0, line.find(":"));
+        line.erase(0, line.find(":") + 1);
+        Celebrity c = Celebrity(name, line);
+        celebrities.push_back(c);
+    }
 
 
     chrono::high_resolution_clock::time_point start = chrono::high_resolution_clock::now();

@@ -14,14 +14,14 @@ Celebrity::Celebrity(string init_name, string init_clues) {
     name = init_name;
 //    istringstream f(init_clues);
 //
-    int pos = 0;
+    int pos = init_clues.find(",");
     string token;
-    while((pos = init_clues.find(",")) != string::npos) {
+    while(pos != -1) {
         token = init_clues.substr(0, pos);
-//        cout << token << endl;
+        cout << token << endl;
         clues.push_back(token);
         init_clues.erase(0, pos + 1);
-
+        pos = init_clues.find(",");
     }
     clues.push_back(init_clues);
 }

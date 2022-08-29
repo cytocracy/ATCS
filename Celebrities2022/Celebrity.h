@@ -14,7 +14,7 @@ class Celebrity {
 public:
     Celebrity(string name, string clues);
     string getName();
-    string genClue();
+    string getClue();
     ~Celebrity();
 private:
     vector<string> clues;

@@ -6,18 +6,22 @@ using namespace std;
 
 int main() {
 
-    Celebrity* c = new Celebrity("Lamont Quattlebaum", "bald,dean of students,married to Wendy");
+    Celebrity c = Celebrity("Lamont Quattlebaum", "bald,dean of students,married to Wendy");
 
     chrono::high_resolution_clock::time_point start = chrono::high_resolution_clock::now();
     chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
 
     while(chrono::duration_cast<chrono::seconds>(end-start).count() < 10){
-        cout << "CLUE" << endl;
+        cout << endl << "Clue: " << c.getClue() << endl;
         string input;
-        cout << "Enter your guess: ";
+        cout << "Enter your guess:";
+//        cin.ignore();
+
         getline(cin, input);
-        if (input == "Theo")
+        if (input == c.getName()){
             cout << "Good" << endl;
+            break;
+        }
         else
             cout << "Bad" << endl;
 

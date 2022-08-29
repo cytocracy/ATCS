@@ -10,8 +10,10 @@
 
 using namespace std;
 
-Celebrity::Celebrity(string name, string init_clues) {
+Celebrity::Celebrity(string init_name, string init_clues) {
+    name = init_name;
 //    istringstream f(init_clues);
+//
     int pos = 0;
     string token;
     while((pos = init_clues.find(",")) != string::npos) {

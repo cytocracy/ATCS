@@ -60,6 +60,52 @@ void doubleTheList(Node* list){
 
 }
 
+bool contains(Node* list, int value){
+    Node* temp = list;
+    while(temp != nullptr){
+        if(temp->value == value)
+            return true;
+        temp = temp->next;
+    }
+    return false;
+}
+
+void deleteLast(Node* &list){
+    if(list == nullptr)
+        return;
+    if(list->next == nullptr){
+        delete list;
+        list = nullptr;
+        return;
+    }
+    Node*temp = list;
+    while (temp->next->next != nullptr)
+        temp = temp->next;
+    delete temp->next;
+    temp->next = nullptr;
+}
+
+void deleteDoubleDigits(Node* &list){
+    while(list != nullptr && list->value >= 10){
+        Node* save = list;
+        list = list->next;
+        delete save;
+    }
+    if(list == nullptr) return;
+    Node* temp = list;
+    while(temp->next !=nullptr){
+        if (temp->next->value >=10){
+            Node* save = temp->next;
+            temp->next = save->next;
+            delete save;
+        } else {
+            temp = temp->next;
+        }
+    }
+}
+
+
+
 int main() {
 
     Node* head;
@@ -84,8 +130,14 @@ int main() {
     cout << "The sum of the values in your linked list is " << sum(head) << endl;
     cout << "The length of your list is " << length(head) << endl;
     cout << "There are " << countEvens(head) << " even numbers in the list." << endl;
-    twiceAllValues(head);
+    //twiceAllValues(head);
     doubleTheList(head);
+    if (contains(head, 27))
+        cout << "There is a 27!" << endl;
+    deleteLast(head);
+    deleteDoubleDigits(head);
 
     return 0;
 }
+
+

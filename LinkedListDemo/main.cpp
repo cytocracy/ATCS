@@ -104,7 +104,16 @@ void deleteDoubleDigits(Node* &list){
     }
 }
 
-
+void stutter(Node* list){
+    Node* temp = list;
+    while(temp != nullptr){
+        Node* save = temp->next;
+        temp->next = new Node;
+        temp->next->value = temp->value;
+        temp->next->next = save;
+        temp = save;
+    }
+}
 
 int main() {
 
@@ -127,15 +136,17 @@ int main() {
         head->next = temp;
         cin >> num;
     }
-    cout << "The sum of the values in your linked list is " << sum(head) << endl;
     cout << "The length of your list is " << length(head) << endl;
     cout << "There are " << countEvens(head) << " even numbers in the list." << endl;
     //twiceAllValues(head);
-    doubleTheList(head);
+//    doubleTheList(head);
     if (contains(head, 27))
         cout << "There is a 27!" << endl;
-    deleteLast(head);
-    deleteDoubleDigits(head);
+//    deleteLast(head);
+//    deleteDoubleDigits(head);
+    stutter(head);
+    cout << "The sum of the values in your linked list is " << sum(head) << endl;
+
 
     return 0;
 }

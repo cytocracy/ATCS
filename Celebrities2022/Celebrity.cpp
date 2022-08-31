@@ -18,7 +18,7 @@ Celebrity::Celebrity(string init_name, string init_clues) {
     string token;
     while(pos != -1) {
         token = init_clues.substr(0, pos);
-        cout << token << endl;
+//        cout << token << endl;
         clues.push_back(token);
         init_clues.erase(0, pos + 1);
         pos = init_clues.find(",");

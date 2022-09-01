@@ -12,14 +12,11 @@ using namespace std;
 
 Celebrity::Celebrity(string init_name, string init_clues) {
     name = init_name;
-//    istringstream f(init_clues);
-//
     int pos = init_clues.find(",");
-    string token;
+    string clue;
     while(pos != -1) {
-        token = init_clues.substr(0, pos);
-//        cout << token << endl;
-        clues.push_back(token);
+        clue = init_clues.substr(0, pos);
+        clues.push_back(clue);
         init_clues.erase(0, pos + 1);
         pos = init_clues.find(",");
     }
@@ -34,10 +31,8 @@ string Celebrity::getClue() {
     if(clues.size() == 0)
         return "No more clues";
     else {
-        //choose a random clue
         int index = rand() % clues.size();
         string clue = clues[index];
-        clues.begin() + index;
         clues.erase(clues.begin() + index);
         return clue;
     }

@@ -115,6 +115,39 @@ void stutter(Node* list){
     }
 }
 
+void insertAtBeginning(Node* &list, inv val){
+    Node* temp = new Node;
+    temp->value = val;
+    temp->next = list;
+    list = temp;
+}
+
+void insertAtEnd(Node* &list, int val){
+    Node* temp = new Node;
+    temp->value = val;
+    temp->next = nullptr;
+    if(list == nullptr){
+        list = temp;
+        return;
+    }
+    Node* cursor = list;
+    while(cursor->next != nullptr)
+        cursor = cursor->next;
+    cursor->next = temp;
+}
+
+void removeConsecutiveDuplicates(Node* list){
+    if(list == nullptr) return;
+    Node* temp = list;
+    while(temp->next != nullptr){
+        if(temp->value == temp->next->value){
+            Node* save = temp->next;
+            temp->next = save->next;
+            delete save;
+        } else temp = temp->next;
+    }
+}
+
 int main() {
 
     Node* head;

@@ -115,7 +115,7 @@ void stutter(Node* list){
     }
 }
 
-void insertAtBeginning(Node* &list, inv val){
+void insertAtBeginning(Node* &list, int val){
     Node* temp = new Node;
     temp->value = val;
     temp->next = list;

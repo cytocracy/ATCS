@@ -148,6 +148,14 @@ void removeConsecutiveDuplicates(Node* list){
     }
 }
 
+void destroyList(Node* &list){
+    while(list != nullptr){
+        Node* save = list;
+        list = list->next;
+        delete save;
+    }
+}
+
 int main() {
 
     Node* head;
@@ -179,6 +187,7 @@ int main() {
 //    deleteDoubleDigits(head);
     stutter(head);
     cout << "The sum of the values in your linked list is " << sum(head) << endl;
+    destroyList(head);
 
 
     return 0;

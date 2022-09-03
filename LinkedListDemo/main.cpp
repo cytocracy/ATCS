@@ -156,6 +156,16 @@ void destroyList(Node* &list){
     }
 }
 
+void reverseList(Node* &list){
+    Node* cursor = list;
+    Node* newHead = nullptr;
+    while(cursor != nullptr){
+        addToBeginning(newHead, cursor->value);
+    }
+    destroyList(list);
+    list = newHead;
+}
+
 int main() {
 
     Node* head;

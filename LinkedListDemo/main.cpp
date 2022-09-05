@@ -156,6 +156,13 @@ void destroyList(Node* &list){
     }
 }
 
+void addToBeginning(Node* &list, int val){
+    Node* temp = new Node;
+    temp->value = val;
+    temp->next = list;
+    list = temp;
+}
+
 void reverseList(Node* &list){
     Node* cursor = list;
     Node* newHead = nullptr;
@@ -164,6 +171,29 @@ void reverseList(Node* &list){
     }
     destroyList(list);
     list = newHead;
+}
+
+
+
+void removeOddPositions(Node* list){
+    if(list == nullptr) return;
+    Node* curr = list;
+    while(curr->next != nullptr){
+        Node* del = curr->next;
+        curr->next = del->next;
+        delete del;
+        if(curr->next != nullptr)
+            curr = curr->next;
+    }
+}
+
+void listAll(Node* list){
+    Node* temp = list;
+    while(temp != nullptr){
+        cout << temp->value << " ";
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main() {
@@ -195,8 +225,11 @@ int main() {
         cout << "There is a 27!" << endl;
 //    deleteLast(head);
 //    deleteDoubleDigits(head);
-    stutter(head);
     cout << "The sum of the values in your linked list is " << sum(head) << endl;
+
+    removeOddPositions(head);
+    listAll(head);
+
     destroyList(head);
 
 

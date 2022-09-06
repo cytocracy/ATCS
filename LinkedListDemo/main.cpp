@@ -201,6 +201,19 @@ void listAll(Node* list){
     cout << endl;
 }
 
+void moveLastToFirst(Node* &list){
+    if(list == nullptr || list->next == nullptr) return;
+    Node* last = list;
+    while(last->next->next != nullptr)
+        last = last->next;
+
+    Node* save = last;
+    last = last->next;
+    last->next = list;
+    save->next = nullptr;
+    list = last;
+}
+
 int main() {
 
     Node* head;

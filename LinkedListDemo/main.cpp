@@ -5,6 +5,14 @@ using namespace std;
 struct Node {
     int value;
     Node* next;
+
+    Node(int v, Node* n){
+        value = v;
+        next = n;
+    }
+    Node(){
+        next = nullptr;
+    }
 };
 
 int sum(Node* list){
@@ -116,10 +124,7 @@ void stutter(Node* list){
 }
 
 void insertAtBeginning(Node* &list, int val){
-    Node* temp = new Node;
-    temp->value = val;
-    temp->next = list;
-    list = temp;
+    list = new Node(val, list);
 }
 
 void insertAtEnd(Node* &list, int val){

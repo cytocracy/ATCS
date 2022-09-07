@@ -21,27 +21,27 @@ struct Node {
 
 };
 
-// just a suggestion: I found it useful to have this function
-// returns a pointer to the Node containing that name, or nullptr 
-// if that Pokemon is not in the list anywhere
-Node* search(string name);
+Node* search(string name, Node* list){
+    Node* current = list;
+    while(current != nullptr){
+        if(current->name == name)
+            return current;
+        current = current->next;
+    }
+    return nullptr;
+}
 
 
-
-Node* loadPokemon(){
+Node* loadPokemon(string filename){
     ifstream file;
-    file.open("shortlist.txt");
+    file.open(filename);
     Node* list = nullptr;
     while(!file.eof()){
-        string line;
         string name;
         int num;
 
+        file >> num;
         getline(file, name);
-        num = stoi(name.substr(0,name.find(" ")));
-        name = name.substr(name.find(" ")+1);
-
-        cout << name << " " << num <<  endl;
         Node* temp = new Node(name, num);
         temp->next = list;
         list = temp;
@@ -50,16 +50,65 @@ Node* loadPokemon(){
     return list;
 }
 
+void printList(Node* list){
+    Node* temp = list;
+    while(temp != nullptr){
+        cout << temp->name << " " << temp->num << endl;
+        temp = temp->next;
+    }
+}
+
 int main() {
 
-    Node* pokemon = loadPokemon();
+    bool running = true;
+
+    cout << "Enter the name of a Pokemon file: ";
+    string filename;
+    cin >> filename;
+
+
+    Node* pokemon = loadPokemon(filename);
 
 
     ofstream f("pokemon.txt");
 
 
-
     cout << "Hello world" << endl;
+
+    printList(pokemon);
+
+    while(running){
+        cout << "1. I want to add a new Pokemon to my collection.\n"
+             << "2. I want to remove a Pokemon from my collection.\n"
+             << "3. I want to lookup a Pokemon in my collection.\n"
+             << "4. I want to save changes.\n"
+             << "5. Quit.\n";
+
+        cout << "Enter your choice: ";
+        int choice;
+        cin >> choice;
+
+        if(choice == 1){
+
+        } else if (choice == 2){
+
+        } else if (choice == 3){
+
+        } else if (choice == 4){
+
+        } else if (choice == 5){
+            running = false;
+        } else {
+            cout << "Invalid choice. Try again.\n";
+        }
+
+
+
+
+
+    }
+
+    cout << "Goodbye!\n";
 
     return 0;
 }

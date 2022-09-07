@@ -214,6 +214,12 @@ void moveLastToFirst(Node* &list){
     list = last;
 }
 
+void printList(Node* list){
+    for(Node* temp = list; temp!=nullptr; temp = temp->next)
+        cout << temp->value << " ";
+    cout << endl;
+}
+
 int main() {
 
     Node* head;
@@ -235,6 +241,11 @@ int main() {
         head->next = temp;
         cin >> num;
     }
+
+    cout << "List: ";
+    printList(head);
+
+
     cout << "The length of your list is " << length(head) << endl;
     cout << "There are " << countEvens(head) << " even numbers in the list." << endl;
     //twiceAllValues(head);

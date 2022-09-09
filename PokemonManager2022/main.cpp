@@ -89,7 +89,8 @@ int main() {
         cin >> choice;
 
         if(choice == 1){
-
+            //
+            cout << "lol you chose 1" << endl;
         } else if (choice == 2){
 
         } else if (choice == 3){

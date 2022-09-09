@@ -58,6 +58,12 @@ void printList(Node* list){
     }
 }
 
+void addNewPokemon(Node* &list, string name, int num){
+    Node* newpoke = new Node(name, num);
+    newpoke->next = list;
+    list = newpoke;
+}
+
 int main() {
 
     bool running = true;
@@ -89,8 +95,14 @@ int main() {
         cin >> choice;
 
         if(choice == 1){
-            //
-            cout << "lol you chose 1" << endl;
+            cout << "Enter the name of the Pokemon: ";
+            string name;
+            cin >> name;
+            cout << "Enter the number of the Pokemon: ";
+            int num;
+            cin >> num;
+            addNewPokemon(pokemon, name, num);
+            cout << "Pokemon added!" << endl;
         } else if (choice == 2){
 
         } else if (choice == 3){

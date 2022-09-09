@@ -104,7 +104,15 @@ int main() {
             addNewPokemon(pokemon, name, num);
             cout << "Pokemon added!" << endl;
         } else if (choice == 2){
-
+            cout << "Enter the name of the Pokemon: ";
+            string name;
+            cin >> name;
+            Node* temp = search(name, pokemon);
+            if(temp != nullptr){
+                cout << "Pokemon removed!" << endl;
+            } else {
+                cout << "Pokemon not found!" << endl;
+            }
         } else if (choice == 3){
 
         } else if (choice == 4){

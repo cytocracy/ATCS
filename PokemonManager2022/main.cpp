@@ -43,7 +43,6 @@ void removeNode(Node* node, Node* list){
     }
 }
 
-
 Node* loadPokemon(string filename){
     ifstream file;
     file.open(filename);
@@ -79,12 +78,7 @@ int main() {
     string filename;
     cin >> filename;
 
-
     Node* pokemon = loadPokemon(filename);
-
-//    cout << "Hello world" << endl;
-
-//    printList(pokemon);
 
     while(running){
         cout << "1. I want to add a new Pokemon to my collection.\n"

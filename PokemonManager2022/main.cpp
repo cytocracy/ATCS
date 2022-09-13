@@ -31,6 +31,18 @@ Node* search(string name, Node* list){
     return nullptr;
 }
 
+void removeNode(Node* node, Node* list){
+    Node* current = list;
+    while(current != nullptr){
+        if(current->next == node){
+            current->next = node->next;
+            delete node;
+            return;
+        }
+        current = current->next;
+    }
+}
+
 
 Node* loadPokemon(string filename){
     ifstream file;
@@ -42,6 +54,7 @@ Node* loadPokemon(string filename){
 
         file >> num;
         getline(file, name);
+        name = name.substr(1);
         Node* temp = new Node(name, num);
         temp->next = list;
         list = temp;
@@ -69,13 +82,9 @@ int main() {
 
     Node* pokemon = loadPokemon(filename);
 
+//    cout << "Hello world" << endl;
 
-    ofstream f("pokemon.txt");
-
-
-    cout << "Hello world" << endl;
-
-    printList(pokemon);
+//    printList(pokemon);
 
     while(running){
         cout << "1. I want to add a new Pokemon to my collection.\n"
@@ -89,27 +98,77 @@ int main() {
         cin >> choice;
 
         if(choice == 1){
-            //
-            cout << "lol you chose 1" << endl;
-        } else if (choice == 2){
+            cout << "Enter the name of the Pokemon you want to add: ";
+            string name;
+            cin >> name;
+            cout << "Enter the number of the Pokemon you want to add: ";
+            int num;
+            cin >> num;
 
-        } else if (choice == 3){
+            Node* userPokemon = search(name, pokemon);
+            if(userPokemon != nullptr){
+                userPokemon->num += num;
+            } else {
+                Node* temp = new Node(name, num);
+                temp->next = pokemon;
+                pokemon = temp;
+            }
+        }
+        else if(choice == 2){
+            cout << "Enter the name of the Pokemon you want to remove: ";
+            string name;
+            cin >> name;
+            cout << "Enter the number of the Pokemon you want to remove: ";
+            int num;
+            cin >> num;
 
-        } else if (choice == 4){
+            Node* userPokemon = search(name, pokemon);
+            if(userPokemon != nullptr){
+                userPokemon->num -= num;
+                if(userPokemon->num <= 0){
+                    removeNode(userPokemon, pokemon);
+                    cout << "You have no more " << name << "s." << endl;
+                } else {
+                    cout << "You now have " << userPokemon->num << " " << name << "s." << endl;
+                }
+            } else {
+                cout << "You don't have any " << name << "s." << endl;
+            }
+        }
+        else if(choice == 3){
+            cout << "Enter the name of the Pokemon you want to lookup: ";
+            string name;
+            cin >> name;
 
-        } else if (choice == 5){
+            Node* temp = search(name, pokemon);
+            if(temp != nullptr){
+                cout << "You have " << temp->num << " " << name << "s." << endl;
+            }
+            else{
+                cout << "Could not find " << name << endl;
+            }
+        }
+        else if(choice == 4){
+            cout << "Enter the name of the file you want to save to: ";
+            string filename;
+            cin >> filename;
+
+            ofstream file;
+            file.open(filename);
+            Node* temp = pokemon;
+            while(temp != nullptr){
+                file << temp->num << " " << temp->name << endl;
+                temp = temp->next;
+            }
+            file.close();
+        }
+        else if(choice == 5){
             running = false;
         } else {
             cout << "Invalid choice. Try again.\n";
         }
 
-
-
-
-
     }
-
     cout << "Goodbye!\n";
-
     return 0;
 }

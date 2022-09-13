@@ -220,6 +220,53 @@ void printList(Node* list){
     cout << endl;
 }
 
+bool mostlyEven(Node* list){
+    Node* temp = list;
+    int evens = 0;
+    int odds = 0;
+    while(temp != nullptr){
+        if (temp->value %2 == 0) evens++;
+        else odds++;
+        temp = temp->next;
+    }
+    return evens > odds;
+}
+
+void moveToFront(Node* &list, int goodNumber){
+    Node* temp = list;
+    if(list == nullptr || list->next == nullptr) return;
+    while(temp->next != nullptr){
+        if(temp->next->value == goodNumber) {
+            Node *good = temp->next;
+            temp->next = good->next;
+            good->next = list;
+            list = good;
+        } else temp = temp->next;
+    }
+}
+
+Node* duplicate(Node* list){
+    if(list == nullptr) return nullptr;
+
+    Node* cursor = list;
+    Node* newlist = new Node(cursor->value, nullptr);
+
+    cursor = cursor->next;
+    Node* temp = newlist;
+
+    while(cursor != nullptr){
+        Node* newnode = new Node(cursor->value, nullptr);
+        temp->next = newnode;
+        temp = temp->next;
+        cursor = cursor->next;
+    }
+    return newlist;
+}
+
+
+
+
+
 int main() {
 
     Node* head;
@@ -244,21 +291,26 @@ int main() {
 
     cout << "List: ";
     printList(head);
+    if (mostlyEven(head)) cout << "true";
+    moveToFront(head, 9);
+    printList(head);
+
+//    printList(duplicate(head));
 
 
-    cout << "The length of your list is " << length(head) << endl;
-    cout << "There are " << countEvens(head) << " even numbers in the list." << endl;
-    //twiceAllValues(head);
-//    doubleTheList(head);
-    if (contains(head, 27))
-        cout << "There is a 27!" << endl;
-//    deleteLast(head);
-//    deleteDoubleDigits(head);
-    cout << "The sum of the values in your linked list is " << sum(head) << endl;
-
-    removeOddPositions(head);
-    listAll(head);
-
+//    cout << "The length of your list is " << length(head) << endl;
+//    cout << "There are " << countEvens(head) << " even numbers in the list." << endl;
+//    //twiceAllValues(head);
+////    doubleTheList(head);
+//    if (contains(head, 27))
+//        cout << "There is a 27!" << endl;
+////    deleteLast(head);
+////    deleteDoubleDigits(head);
+//    cout << "The sum of the values in your linked list is " << sum(head) << endl;
+//
+//    removeOddPositions(head);
+//    listAll(head);
+//
     destroyList(head);
 
 

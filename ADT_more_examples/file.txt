@@ -1,0 +1,52 @@
+Software Installation Instructions
+for Advanced Topics in Computer Science, Honors
+
+Overview
+For our ATCS class, well be using a program called CLion from a company called JetBrains.
+
+In AP Computer Science, we used BlueJ as our Java IDE.  IDE stands for Integrated Development Environment, which meant that BlueJ had a text editor, a compiler, and a debugger all rolled into one.  I use BlueJ for AP Computer Science because it is a pretty simple IDE, and its free.  There certainly are more complex, full-featured, professional Java IDEs, but BlueJ is sufficient for our needs, and it doesnt get in the way of the learning.
+
+In Advanced Topics in Computer Science, well use CLion as our C++ IDE.  CLion is a tool for professional programmers; no self-respecting professional Java programmer would use BlueJ, but real C++ programmers use CLion.  For that reason, CLion isnt usually free: there are a variety of pricing schemes, but it would cost you $89/year if you wanted to buy it yourself.  Fortunately, JetBrains allows educational institutions to use their products for free.  It is really important that you always use your @shschools.org email address when you are interacting with CLion and/or JetBrains.  Ive handled all the details so that JetBrains recognizes anyone with a @shschools.org as a student, but they wont know youre a student if you use your personal gmail account.
+
+Also, CLion is quite a bit more complex than BlueJ.  Over the first few weeks, Ill teach the tool a bit, and youll quickly get comfortable with the program.  In fact, well hide a lot of the features that arent relevant for our class.  Dont get scared when you open it for the first time!
+
+Step A: Downloading CLion
+Go to https://www.jetbrains.com/shop/eform/students and fill out the form.  Youll want to pick the University Email Address and use your @shschools.org email address.  (University?  Yes, this really is an advanced topics class.)
+
+Once you fill out the form and click the Apply for Free Products button, this will begin a process where youll get an automatic email sent to your email account.  Youll need to click on a link in that email, and youll get sent to a page where you should (eventually) be able to download all of the JetBrains products for free.  You only need to download CLion.
+
+Youll get a pretty typical installer.  Note that CLion works on both Macs and Windows PCs, and either one is perfectly fine for our course.
+
+You can pretty much accept the default installation options.  At some point, you may see a screen that looks like the one to the right.  It doesnt really matter what you pick.  We wont really be using any of these tools and plugins, so you could disable them all (which might save space and make CLion have fewer menus and options) or you could just leave them enabled, which is the default option.
+
+Step B: Does it work?
+Try launching CLion for the first time by double-clicking on it.  It may or may not work correctly.  Thats OK.  Dont freak out if you get a cryptic error messages.  You might just need to do one more thing.  If it works, though, you can skip the next page or so of this handout and move to step D.
+
+CLion works by providing a nice interface to a C++ compiler and other tools that youve already installed.  So, if all youve done is install CLion, thats not enough to make it work correctly.  However, you might have installed the necessary components as part of some other computer science work youve done.  So, dont be shocked if it works already.
+
+
+Step C: For Mac users
+On a Mac, CLion requires something called the Xcode command line developer tools.  If youve ever installed Xcode, its likely you have these tools already installed.  If not, heres what you need to do:
+	Open up the Terminal app.  Youll find it in the Applications folder, then the Utilities folder.  Or, you can search for it.
+	At the prompt, type the following command:  xcode-select --install
+	You should see an installer window pop up, and you should click the Install button and wait for the installation to complete.
+	Thats it!  CLion should work correctly now.
+
+Step C: For Windows PC users
+On Windows PCs, CLion can work with a few different C++ compilers and developer tools.  Two of the choices are Cygwin or MinGW.  Its likely youve never heard of either of these, and it doesnt matter which you use for this class.  To oversimplify, Cygwin includes a bit more, but brings you closer to the world of Linux.  MinGW is a more Windows-centric solution.
+
+JetBrains has a very good page explaining how to install the necessary additional components.  Rather than reproduce their instructions in this handout, Ill direct you to their instructions at this link:
+https://www.jetbrains.com/help/clion/quick-tutorial-on-configuring-clion-on-windows.html
+
+
+Step D: Testing CLion
+Its a tradition in computer science that the first ever program you write in a new language or environment does nothing but print out Hello, World!.  So, lets test CLion by writing that program in C++.
+
+	Launch CLion, and you should see a screen that looks something like the one shown at the right.  Click New Project.
+	Youll then be taken to a screen with some information about the project.  You can save this project anywhere (Ive named it Hello and saved it on the desktop).  In the Language Standard pop-up menu, Ive switched it to C++17, but this is not necessary, and it doesnt matter whether you select C++14, C++20, or any other option.  This Hello World program is so simple that you could select any of the options and be fine.  When youre ready, click the Create button at the bottom of the window.
+
+	The template that CLion uses for new projects is, in fact, a program that prints out Hello, World!.  So, you dont need to change the code at all!
+
+	To run the program, click the little triangular Play button in the toolbar, located between the Hello | Debug menu and the bug icon.  Or, you can go to the Run menu at the top and select the first option: Run Hello.  If all goes well, you should see the output in a portion of the window near the bottom.  Congratulations!  Youre ready for the first day of Advanced Topics in Computer Science!
+
+

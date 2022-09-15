@@ -4,8 +4,6 @@
 
 using namespace std;
 
-// you'll need this somewhere; it should go in the private section of your class
-// if you opt to do it that way
 struct Node {
     string name;
     int num;
@@ -17,11 +15,13 @@ struct Node {
         next = nullptr;
     }
 
-    Node(){}
-
+    Node() {
+        num = 0;
+        next = nullptr;
+    }
 };
 
-Node* search(string name, Node* list){
+Node* search(const string& name, Node* list){
     Node* current = list;
     while(current != nullptr){
         if(current->name == name)
@@ -43,7 +43,7 @@ void removeNode(Node* node, Node* list){
     }
 }
 
-Node* loadPokemon(string filename){
+Node* loadPokemon(const string& filename){
     ifstream file;
     file.open(filename);
     Node* list = nullptr;
@@ -67,6 +67,15 @@ void printList(Node* list){
     while(temp != nullptr){
         cout << temp->name << " " << temp->num << endl;
         temp = temp->next;
+    }
+}
+
+void destroyList(Node* list){
+    Node* temp = list;
+    while(temp != nullptr){
+        Node* next = temp->next;
+        delete temp;
+        temp = next;
     }
 }
 
@@ -137,18 +146,17 @@ int main() {
             Node* temp = search(name, pokemon);
             if(temp != nullptr){
                 cout << "You have " << temp->num << " " << name << "s." << endl;
-            }
-            else{
+            }else{
                 cout << "Could not find " << name << endl;
             }
         }
         else if(choice == 4){
             cout << "Enter the name of the file you want to save to: ";
-            string filename;
-            cin >> filename;
+            string savefile;
+            cin >> savefile;
 
             ofstream file;
-            file.open(filename);
+            file.open(savefile);
             Node* temp = pokemon;
             while(temp != nullptr){
                 file << temp->num << " " << temp->name << endl;
@@ -163,6 +171,7 @@ int main() {
         }
 
     }
+    destroyList(pokemon);
     cout << "Goodbye!\n";
     return 0;
 }

@@ -58,12 +58,53 @@ void testLetterFrequency() {
     f.close();
 }
 
-void testSetIntersection() {
+template <typename ElemType>
+set<ElemType> intersection(set<ElemType> s1, set<ElemType> s2){
+    set<ElemType> s;
+    for(ElemType x: s1){
+        if(s2.count(x)>0){
+            s.insert(x);
+        }
+    }
+    return s;
+}
 
+void testSetIntersection() {
+    set<string> a;
+    a.insert("Theodore");
+    a.insert("Aarav");
+    a.insert("Aidan");
+    a.insert("Jerry");
+    set<string> b;
+    b.insert("Aidan");
+    b.insert("Ben");
+    b.insert("Leila");
+    set<string> c = intersection(a, b);
+    for(string x : c){
+        cout << x << endl;
+    }
 }
 
 void testFriends() {
     map<string, set<string>> friends;
+    cin.ignore();
+    string line;
+    getline(cin, line);
+    while (!line.empty()){
+        int index = line.find(" ");
+        string first = line.substr(0, index);
+        string second = line.substr(index+1);
+        friends[first].insert(second);
+        friends[second].insert(first);
+        getline(cin, line);
+    }
+    for(auto it = friends.begin(); it != friends.end(); it++){
+        cout << it->first << " : ";
+        for (string str : it->second){
+            cout << str << " ";
+        }
+        cout << endl;
+    }
 }
 int main() {
     cout << "Hooray for ADTs!" << endl;

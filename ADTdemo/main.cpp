@@ -6,6 +6,31 @@
 
 using namespace std;
 
+
+queue<ElemType> reverseQueue(queue<ElemType> q) {
+    stack<ElemType> s;
+    while (!q.empty()) {
+        s.push(q.front());
+        q.pop();
+    }
+    while (!s.empty()) {
+        q.push(s.top());
+        s.pop();
+    }
+    return q;
+}
+
+set<ElemType> union(set<ElemType> set1, set<ElemType> set2) {
+    set<ElemType> result;
+    for (auto it = set1.begin(); it != set1.end(); it++) {
+        result.insert(*it);
+    }
+    for (auto it = set2.begin(); it != set2.end(); it++) {
+        result.insert(*it);
+    }
+    return result;
+}
+
 int main() {
     cout << "Hello, ADTs!" << endl;
 

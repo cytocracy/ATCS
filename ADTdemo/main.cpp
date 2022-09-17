@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 queue<ElemType> reverseQueue(queue<ElemType> q) {
     stack<ElemType> s;
     while (!q.empty()) {

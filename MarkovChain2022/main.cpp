@@ -9,29 +9,43 @@ using namespace std;
 struct MarkovModel {
     map<string, map<char, int>> model;
     int order;
+    string init_state;
     MarkovModel(int order){ this->order = order; }
     void add(string s) {
+        string state
         for (int i = 0; i < s.size(); i++) {
             string key = s.substr(i, order);
             char c = s[i + order];
             model[key][c]++;
         }
     }
+
     char next(string s) {
         map<char, int> m = model[s];
-        int r = rand() % m.size();
+        int total = 0;
+        for (auto it = m.begin(); it != m.end(); it++) {
+            total += it->second;
+        }
+        if(total==0) return ' ';
+        int r = rand() % total;
         for (auto it = m.begin(); it != m.end(); it++) {
             r -= it->second;
-            if (r < 0) {
-                return it->first;
-            }
+            if (r < 0) return it->first;
         }
         return ' ';
     }
 };
 
-MarkovModel createModel(string filname, int level){
-    if
+MarkovModel createModel(string filename, int level){
+    ifstream file(filename);
+    string s;
+    char ch;
+    MarkovModel model(level);
+    while (file >>noskipws>> ch) {
+        s+=toupper(ch);
+    }
+    model.add(s);
+    return model;
 }
 
 int main() {
@@ -41,9 +55,17 @@ int main() {
     int level;
     cin >> level;
     cout << "Enter file name: ";
+    cin.ignore();
     string filename;
     cin >> filename;
     // finish this up
+    MarkovModel model = createModel(filename, level);
+    string s = "LISTS";
+    for (int i = 0; i < 100; i++) {
+        s += model.next(s.substr(i, level));
+    }
+    cout << s << endl;
+
 
 
 

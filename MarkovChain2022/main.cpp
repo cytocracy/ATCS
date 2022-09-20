@@ -12,25 +12,27 @@ struct MarkovModel {
     string init_state;
     MarkovModel(int order){ this->order = order; }
     void add(string s) {
-        string state
         for (int i = 0; i < s.size(); i++) {
             string key = s.substr(i, order);
             char c = s[i + order];
             model[key][c]++;
         }
+
     }
 
     char next(string s) {
         map<char, int> m = model[s];
         int total = 0;
-        for (auto it = m.begin(); it != m.end(); it++) {
-            total += it->second;
+        for (auto e : m) {
+            total += e.second;
         }
-        if(total==0) return ' ';
+        if(total == 0) return ' ';
         int r = rand() % total;
-        for (auto it = m.begin(); it != m.end(); it++) {
-            r -= it->second;
-            if (r < 0) return it->first;
+        for (auto e : m) {
+            r -= e.second;
+            if (r <= 0) {
+                return e.first;
+            }
         }
         return ' ';
     }

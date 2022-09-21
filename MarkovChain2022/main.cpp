@@ -37,6 +37,7 @@ struct MarkovModel {
         return ' ';
     }
 };
+//idk
 
 MarkovModel createModel(string filename, int level){
     ifstream file(filename);

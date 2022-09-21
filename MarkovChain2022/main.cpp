@@ -9,8 +9,17 @@ using namespace std;
 struct MarkovModel {
     map<string, map<char, int>> model;
     int order;
-    string init_state;
+
     MarkovModel(int order){ this->order = order; }
+    string init_seed(){
+        string seed = model.begin()->first;
+        for (auto it = model.begin(); it != model.end(); it++){
+            if (it->second.size() > seed.size()) seed = it->first;
+        }
+//        cout << "Seed: " << seed << ":)" << endl;
+        return seed;
+    }
+
     void add(string s) {
         for (int i = 0; i < s.size(); i++) {
             string key = s.substr(i, order);
@@ -63,7 +72,7 @@ int main() {
     cin >> filename;
     // finish this up
     MarkovModel model = createModel(filename, level);
-    string s = "LISTS";
+    string s = model.init_seed();
     for (int i = 0; i < 100; i++) {
         s += model.next(s.substr(i, level));
     }

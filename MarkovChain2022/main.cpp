@@ -73,7 +73,7 @@ int main() {
     // finish this up
     MarkovModel model = createModel(filename, level);
     string s = model.init_seed();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 300; i++) {
         s += model.next(s.substr(i, level));
     }
     cout << s << endl;

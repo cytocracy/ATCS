@@ -77,9 +77,5 @@ int main() {
         s += model.next(s.substr(i, level));
     }
     cout << s << endl;
-
-
-
-
     return 0;
 }

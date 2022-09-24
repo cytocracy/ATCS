@@ -29,6 +29,7 @@ struct MarkovModel {
 
     }
 
+
     char next(string s) {
         map<char, int> m = model[s];
         int total = 0;

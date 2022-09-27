@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-
+//struct to abstract most of the computations
 struct MarkovModel {
     map<string, map<char, int>> model;
     int order;
@@ -16,7 +16,6 @@ struct MarkovModel {
         for (auto it = model.begin(); it != model.end(); it++){
             if (it->second.size() > seed.size()) seed = it->first;
         }
-//        cout << "Seed: " << seed << ":)" << endl;
         return seed;
     }
 
@@ -30,6 +29,7 @@ struct MarkovModel {
     }
 
     char next(string s) {
+        //looping through the map isn't very time efficient but is more space efficient
         map<char, int> m = model[s];
         int total = 0;
         for (auto e : m) {
@@ -46,13 +46,14 @@ struct MarkovModel {
         return ' ';
     }
 };
-//idk
 
 MarkovModel createModel(string filename, int level){
     ifstream file(filename);
     string s;
     char ch;
     MarkovModel model(level);
+    //this is probably less time efficient as well since looping through the file in createModel and again in add,
+    //but it makes more sense when abstracted
     while (file >>noskipws>> ch) {
         s+=toupper(ch);
     }
@@ -70,12 +71,10 @@ int main() {
     cin.ignore();
     string filename;
     cin >> filename;
-    // finish this up
     MarkovModel model = createModel(filename, level);
     string s = model.init_seed();
-    for (int i = 0; i < 300; i++) {
+    for (int i = 0; i < 300; i++)
         s += model.next(s.substr(i, level));
-    }
     cout << s << endl;
     return 0;
 }

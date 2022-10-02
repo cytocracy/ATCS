@@ -40,7 +40,7 @@ TreeNode* makeStudentTree() {
 
 
 int main() {
-    cout << "Hello, Binary Trees1!" << endl;
+    cout << "Hello, Binary Trees12!" << endl;
     TreeNode *root = makeStudentTree();
     return 0;
 }

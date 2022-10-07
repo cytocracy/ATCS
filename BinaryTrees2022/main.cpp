@@ -37,10 +37,34 @@ TreeNode* makeStudentTree() {
     return temp;
 }
 
+int size(TreeNode* tree){
+    if (tree == nullptr) return 0;
+    return 1 + size(tree->left) + size(tree->right);
+}
 
+bool contains(TreeNode* tree, string str){
+    if (tree == nullptr) return false;
+    if (tree->value == str) return true;
+    return contains(tree->left, str) || contains(tree->right, str);
+}
+
+int countAs(string str){
+    if(str.length() == 0) return 0;
+    if(tolower(str[0]) == 'a') return 1+countAs(str.substr(1));
+    return countAs(str.substr(1));
+}
+
+int countAs(TreeNode *tree){
+    if (tree == nullptr) return 0;
+    return countAs(tree->value) + countAs(tree->left) + countAs(tree->right);
+}
 
 int main() {
     cout << "Hello, Binary Trees12345!" << endl;
     TreeNode *root = makeStudentTree();
+    cout << size(root) << endl;
+    if (contains(root, "Ben"))
+        cout << "Yes" << endl;
+    cout << countAs(root) << endl;
     return 0;
 }

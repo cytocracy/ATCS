@@ -60,7 +60,7 @@ int countAs(TreeNode *tree){
 }
 
 int main() {
-    cout << "Hello, Binary Trees123456!" << endl;
+    cout << "Hello, Binary Trees1234567!" << endl;
     TreeNode *root = makeStudentTree();
     cout << size(root) << endl;
     if (contains(root, "Ben"))

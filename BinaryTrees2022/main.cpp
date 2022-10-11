@@ -91,8 +91,8 @@ void removeLeaves(TreeNode* &tree){
         tree = nullptr;
         return;
     }
-    if(tree->left!=nullptr) removeLeaves(tree->left);
-    if(tree->right!=nullptr) removeLeaves(tree->right);
+    removeLeaves(tree->left);
+    removeLeaves(tree->right);
 }
 
 int main() {

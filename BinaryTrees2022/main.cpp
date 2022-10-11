@@ -59,6 +59,42 @@ int countAs(TreeNode *tree){
     return countAs(tree->value) + countAs(tree->left) + countAs(tree->right);
 }
 
+bool allEvenLength(TreeNode* tree){
+    if (tree == nullptr) return true;
+    if (tree->value.length() % 2 != 0) return false;
+    return allEvenLength(tree->left) && allEvenLength(tree->right);
+}
+
+void flipTree(TreeNode* tree){
+    if(tree == nullptr) return;
+    TreeNode* left = tree->left;
+    TreeNode* right = tree->right;
+    tree->left = right;
+    tree->right = left;
+    flipTree(tree->left);
+    flipTree(tree->right);
+}
+
+TreeNode* makeFullTree(string str, int level){
+    if(level <= 0) return nullptr;
+    TreeNode* treeNode = new TreeNode;
+    tree->value = str;
+    tree->left = makeFullTree(str, level-1);
+    tree->right = makeFullTree(str, level-1);
+    return tree;
+}
+
+void removeLeaves(TreeNode* &tree){
+    if(tree==nullptr) return;
+    if(tree->left==nullptr && tree->right==nullptr){
+        delete tree;
+        tree = nullptr;
+        return;
+    }
+    if(tree->left!=nullptr) removeLeaves(tree->left);
+    if(tree->right!=nullptr) removeLeaves(tree->right);
+}
+
 int main() {
     cout << "Hello, Binary Trees12345678!" << endl;
     TreeNode *root = makeStudentTree();

@@ -96,7 +96,7 @@ void removeLeaves(TreeNode* &tree){
 }
 
 int main() {
-    cout << "Hello, Binary Trees123456789!" << endl;
+    cout << "Hello, Binary Trees1234567890!" << endl;
     TreeNode *root = makeStudentTree();
     cout << size(root) << endl;
     if (contains(root, "Ben"))

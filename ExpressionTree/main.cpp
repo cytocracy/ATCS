@@ -42,11 +42,28 @@ ETNode *buildExpressionTree() {
     return tree;
 }
 
-void printInOrder(ETNode* tree){
+void printInOrder(ETNode* &tree){
     if (tree == nullptr) return;
     printInOrder(tree->left);
     cout << tree->tostring() << " ";
     printInOrder(tree->right);
+}
+
+void evaluate(ETNode* tree){
+    if (tree == nullptr || tree->value.op == "#") return;
+    evaluate(tree->left);
+    evaluate(tree->right);
+    int left = tree->left->value.number;
+    int right = tree->right->value.number;
+    delete tree->left;
+    delete tree->right;
+    tree->left = nullptr;
+    tree->right = nullptr;
+    if(tree->value.op == "+") tree->value.number = left + right;
+    else if(tree->value.op == "-") tree->value.number = left - right;
+    else if(tree->value.op == "*") tree->value.number = left * right;
+    else if(tree->value.op == "/") tree->value.number = left / right;
+    tree->value.op = "#";
 }
 
 int main() {
@@ -54,8 +71,10 @@ int main() {
     ETNode *root = buildExpressionTree();
     printInOrder(root);
     cout << endl;
-    // printPostOrder(root);
+//    printPostOrder(root);
     cout << endl;
+    evaluate(root);
+    cout << root->tostring() << endl;
 
     return 0;
 }

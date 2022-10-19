@@ -29,6 +29,9 @@ int main() {
     ifstream fin(filename.c_str());
 
     // continue here
+    // read the file and build the tree
+    // then play the game
+
 
     cout << "Good bye!" << endl;
 

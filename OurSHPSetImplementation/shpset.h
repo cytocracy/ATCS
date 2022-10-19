@@ -38,6 +38,11 @@ private:
     //recursive helper functions
     int sizeHelper(TreeNode* tree) const;
     bool containsHelper(string value, TreeNode* tree) const;
+    void clearHelper(TreeNode* &tree);
+    void insertHelper(string value, TreeNode* &tree);
+    void getVectorHelper(TreeNode* tree, vector<string> &vec) const;
+    TreeNode* eraseHelper(string value, TreeNode* &tree);
+    TreeNode* getMaxValueNode(TreeNode* tree) const;
 };
 
 

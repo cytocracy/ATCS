@@ -19,6 +19,24 @@ struct TreeNode {
     }
 };
 
+
+void buildTree(ifstream &fin, TreeNode* &root){
+    string line;
+    getline(fin, line);
+    if (line.empty()) return;
+    if(root->left == nullptr) root->left = new TreeNode(line);
+    else root->right = new TreeNode(line);
+    buildTree(fin, root->left);
+    buildTree(fin, root->right);
+}
+
+void printTree(TreeNode* root){
+    if (root == nullptr) return;
+    cout << root->value << endl;
+    printTree(root->left);
+    printTree(root->right);
+}
+
 int main() {
     cout << "City Guessing Game" << endl << endl;
     cout << "Welcome to the city City Guessing Game!" << endl;
@@ -27,10 +45,20 @@ int main() {
     getline(cin, filename);
     TreeNode* root = nullptr;
     ifstream fin(filename.c_str());
+    string rootValue;
+    getline(fin, rootValue);
+    root = new TreeNode(rootValue.substr(1));
+    buildTree(fin, root);
 
-    // continue here
-    // read the file and build the tree
-    // then play the game
+    bool playing = true;
+    while(playing){
+        TreeNode* curr = root;
+        while(curr->left != nullptr && curr->right != nullptr){
+            string answer;
+
+        }
+
+    }
 
 
     cout << "Good bye!" << endl;

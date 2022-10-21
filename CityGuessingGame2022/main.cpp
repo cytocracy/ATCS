@@ -28,9 +28,15 @@ int main() {
     TreeNode* root = nullptr;
     ifstream fin(filename.c_str());
 
-    // continue here
-    // read the file and build the tree
-    // then play the game
+    while(!fin.eof()){
+        string in;
+        getline(fin, in);
+        if(in.substr(0,1) == "Q")
+            string question = in.substr(2);
+
+
+    }
+
 
 
     cout << "Good bye!" << endl;

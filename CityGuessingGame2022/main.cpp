@@ -61,7 +61,7 @@ int main() {
     }
 
 
-    cout << "Good badshjffdye!" << endl;
+    cout << "Good badshdjffdye!" << endl;
 
     return 0;
 }

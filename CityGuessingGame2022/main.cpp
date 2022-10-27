@@ -24,10 +24,13 @@ void buildTree(ifstream &fin, TreeNode* &root){
     string line;
     getline(fin, line);
     if (line.empty()) return;
-    if(root->left == nullptr) root->left = new TreeNode(line);
-    else root->right = new TreeNode(line);
-    buildTree(fin, root->left);
-    buildTree(fin, root->right);
+    string type = line.substr(0, 1);
+    string value = line.substr(2);
+    root = new TreeNode(line);
+    if (type == "Q"){
+        buildTree(fin, root->left);
+        buildTree(fin, root->right);
+    }
 }
 
 void printTree(TreeNode* root){
@@ -45,19 +48,25 @@ int main() {
     getline(cin, filename);
     TreeNode* root = nullptr;
     ifstream fin(filename.c_str());
-    string rootValue;
-    getline(fin, rootValue);
-    root = new TreeNode(rootValue.substr(1));
+//    string rootValue;
+//    getline(fin, rootValue);
+//    root = new TreeNode(rootValue.substr(1));
     buildTree(fin, root);
+    printTree(root);
 
+    TreeNode* current = root;
     bool playing = true;
     while(playing){
-        TreeNode* curr = root;
-        while(curr->left != nullptr && curr->right != nullptr){
-            string answer;
-
+        cout << current->value << endl;
+        string answer;
+        getline(cin, answer);
+        if (answer == "Y"){
+            current = current->left;
+        } else if (answer == "N"){
+            current = current->right;
+        } else if (answer == "Q"){
+            playing = false;
         }
-
     }
 
 

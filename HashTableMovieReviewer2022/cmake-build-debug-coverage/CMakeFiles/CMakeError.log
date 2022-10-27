@@ -1,0 +1,176 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags:  
+
+The output was:
+1
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: -c 
+
+The output was:
+1
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: -Aa 
+
+The output was:
+1
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+gcc.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/g++.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags:  
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+g++.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/g++.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: -c 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+g++.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/g++.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: --c++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+g++.exe: error: unrecognized command-line option '-fcoverage-mapping'
+g++.exe: error: unrecognized command-line option '--c++'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/g++.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: --ec++ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+g++.exe: error: unrecognized command-line option '-fcoverage-mapping'
+g++.exe: error: unrecognized command-line option '--ec++'; did you mean '-Weffc++'?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/g++.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+g++.exe: warning: '-mcpu=' is deprecated; use '-mtune=' or '-march=' instead
+g++.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+g++.exe: error: unrecognized command-line option '-fcoverage-mapping'
+g++.exe: error: unrecognized command-line option '--target=arm-arm-none-eabi'
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/g++.exe 
+Build flags: -fprofile-instr-generate;-fcoverage-mapping
+Id flags: -c;-I__does_not_exist__ 
+
+The output was:
+1
+g++.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+g++.exe: error: unrecognized command-line option '-fcoverage-mapping'
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_b18b0/fast && C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\cmTC_b18b0.dir\build.make CMakeFiles/cmTC_b18b0.dir/build
+mingw32-make[1]: Entering directory 'C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b18b0.dir/CMakeCCompilerABI.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe   -fprofile-instr-generate -fcoverage-mapping    -v -o CMakeFiles\cmTC_b18b0.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\JetBrains\CLion 2022.2\bin\cmake\win\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Using built-in specs.
+COLLECT_GCC=C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+Target: x86_64-w64-mingw32
+Configured with: ../gcc-11.2.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts=yes --enable-libstdcxx-time=yes --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 11.2.0 (GCC) 
+mingw32-make[1]: *** [CMakeFiles\cmTC_b18b0.dir\build.make:77: CMakeFiles/cmTC_b18b0.dir/CMakeCCompilerABI.c.obj] Error 1
+mingw32-make[1]: Leaving directory 'C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
+mingw32-make: *** [Makefile:126: cmTC_b18b0/fast] Error 2
+
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_9a137/fast && C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\cmTC_9a137.dir\build.make CMakeFiles/cmTC_9a137.dir/build
+mingw32-make[1]: Entering directory 'C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a137.dir/testCCompiler.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe   -fprofile-instr-generate -fcoverage-mapping  -o CMakeFiles\cmTC_9a137.dir\testCCompiler.c.obj -c C:\Theo\Development\ATCS\HashTableMovieReviewer2022\cmake-build-debug-coverage\CMakeFiles\CMakeTmp\testCCompiler.c
+gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+mingw32-make[1]: *** [CMakeFiles\cmTC_9a137.dir\build.make:77: CMakeFiles/cmTC_9a137.dir/testCCompiler.c.obj] Error 1
+mingw32-make[1]: Leaving directory 'C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
+mingw32-make: *** [Makefile:126: cmTC_9a137/fast] Error 2
+
+
+

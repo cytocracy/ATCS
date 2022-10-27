@@ -1,0 +1,40 @@
+"C:\Program Files\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_CXX_FLAGS=-fprofile-instr-generate -fcoverage-mapping" "-DCMAKE_C_FLAGS=-fprofile-instr-generate -fcoverage-mapping" -G "CodeBlocks - MinGW Makefiles" -S C:\Theo\Development\ATCS\HashTableMovieReviewer2022 -B C:\Theo\Development\ATCS\HashTableMovieReviewer2022\cmake-build-debug-coverage
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe
+-- Check for working C compiler: C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe - broken
+CMake Error at C:/Program Files/JetBrains/CLion 2022.2/bin/cmake/win/share/cmake-3.23/Modules/CMakeTestCCompiler.cmake:69 (message):
+  The C compiler
+
+    "C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_9a137/fast && C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\cmTC_9a137.dir\build.make CMakeFiles/cmTC_9a137.dir/build
+    mingw32-make[1]: Entering directory 'C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
+    Building C object CMakeFiles/cmTC_9a137.dir/testCCompiler.c.obj
+    C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe   -fprofile-instr-generate -fcoverage-mapping  -o CMakeFiles\cmTC_9a137.dir\testCCompiler.c.obj -c C:\Theo\Development\ATCS\HashTableMovieReviewer2022\cmake-build-debug-coverage\CMakeFiles\CMakeTmp\testCCompiler.c
+    gcc.exe: error: unrecognized command-line option '-fprofile-instr-generate'; did you mean '-fprofile-generate'?
+    gcc.exe: error: unrecognized command-line option '-fcoverage-mapping'
+    mingw32-make[1]: *** [CMakeFiles\cmTC_9a137.dir\build.make:77: CMakeFiles/cmTC_9a137.dir/testCCompiler.c.obj] Error 1
+    mingw32-make[1]: Leaving directory 'C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
+    mingw32-make: *** [Makefile:126: cmTC_9a137/fast] Error 2
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeOutput.log".
+See also "C:/Theo/Development/ATCS/HashTableMovieReviewer2022/cmake-build-debug-coverage/CMakeFiles/CMakeError.log".

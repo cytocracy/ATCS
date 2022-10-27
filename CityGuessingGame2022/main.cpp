@@ -70,7 +70,7 @@ int main() {
     }
 
 
-    cout << "Good badshdjffdye!" << endl;
+    cout << "Good bye!" << endl;
 
     return 0;
 }

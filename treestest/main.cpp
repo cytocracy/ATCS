@@ -79,6 +79,11 @@ int getLevelSumDifference(TreeNode* tree){
 }
 
 
+int getLevelSumDifference2(TreeNode *tree) {
+    if (tree == nullptr) return 0;
+    return tree->value - getLevelSumDifference(tree->left) - getLevelSumDifference(tree->right);
+}
+
 int main() {
     cout << "Hello, World!" << endl;
     TreeNode *root = makeTestTree();
@@ -87,7 +92,7 @@ int main() {
     favorites.insert(3);
     favorites.insert(8);
     favorites.insert(20);
-    cout << getLevelSumDifference(root) << endl;
+    cout << getLevelSumDifference2 (root) << endl;
     cout << countFavoriteNumbers(root, favorites) << endl;
     cout << hasPathSum(root, 29) << endl;
     return 0;

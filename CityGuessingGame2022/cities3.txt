@@ -1,0 +1,23 @@
+QIs it in the United States?
+QIs it a state capital?
+QIs it in the midwest?
+AOmaha
+ABoston
+QIs it in California?
+QIs it in the Bay Area?
+QIs it big?
+ASan Francisco
+QDoes it have SHP?
+AAtherton
+AMenlo Park
+ASanta Barbara
+QIs it in Nebraska?
+ALincoln
+AChicago
+QIs it in Europe?
+QIs it in the U.K.?
+ALondon
+AGdansk
+QIs it on an island?
+ATokyo
+AJBeijing

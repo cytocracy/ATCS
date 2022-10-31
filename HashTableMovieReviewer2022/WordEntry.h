@@ -7,12 +7,16 @@ using namespace std;
 
 class WordEntry {
 public:
+    WordEntry();
     WordEntry(string str, int score);
     string getWord() const;
     double getAvgScore() const;
     void addScore(int score);
 
 private:
+    string word;
+    int sumScores;
+    int numScores;
 
 };
 

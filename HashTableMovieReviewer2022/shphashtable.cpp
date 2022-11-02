@@ -47,6 +47,7 @@ void shphashtable::printStats() const {
     int longestChain = 0;
     int totalChainLength = 0;
     int numCollisions = 0;
+    int totalWords = 0;
     for (int i=0; i<size; i++){
         if (table[i]){
             usedBuckets++;
@@ -56,6 +57,7 @@ void shphashtable::printStats() const {
                 chainLength++;
                 ptr = ptr->next;
             }
+            totalWords += chainLength;
             if (chainLength > longestChain) longestChain = chainLength;
             totalChainLength += chainLength;
             numCollisions += chainLength - 1;
@@ -67,6 +69,7 @@ void shphashtable::printStats() const {
     cout << "Longest chain: " << longestChain << endl;
     cout << "Average chain length: " << 1.0 * totalChainLength / usedBuckets << endl;
     cout << "Number of collisions: " << numCollisions << endl;
+    cout << "Total words: " << totalWords << endl;
 }
 
 

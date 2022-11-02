@@ -13,12 +13,14 @@ void loadReviews(shphashtable& table, string filename){
         string word = "";
         for (int i=0; i<line.length(); i++){
             if (line[i] == ' '){
-                if (word != "") table.put(word, score);
+                if (word != "" && isalpha(word[0])) table.put(word, score);
                 word = "";
             }
             else word += line[i];
         }
+        if(word != "" && isalpha(word[0]))table.put(word, score);
     }
+
 }
 
 void guessRating(shphashtable& reviews, string review){
@@ -46,7 +48,7 @@ void guessRating(shphashtable& reviews, string review){
 
 int main() {
     cout << "Hello, Movie Reviews!" << endl;
-    shphashtable reviews(10007);
+    shphashtable reviews(20003);
 
     loadReviews(reviews, "reviews.txt");
 

@@ -43,6 +43,7 @@ void shphashtable::put(string str, int score) {
 
 void shphashtable::printStats() const {
 
+
 }
 
 double shphashtable::getAverageScore(string str) const {

@@ -47,6 +47,8 @@ void shp_priority_queue::heapifyUp(int index) {
 
 }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "UnreachableCode"
 void shp_priority_queue::heapifyDown(int index) {
     int left = 2 * index + 1;
     int right = 2 * index + 2;
@@ -63,5 +65,5 @@ void shp_priority_queue::heapifyDown(int index) {
         heap[index] = temp;
         heapifyDown(smallest);
     }
-
 }
+#pragma clang diagnostic pop

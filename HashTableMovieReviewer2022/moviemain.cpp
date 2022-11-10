@@ -54,12 +54,15 @@ int main() {
 
 
     reviews.printStats();
-    string response;
-    cout << "Enter a review: ";
-    getline(cin, response);
-    guessRating(reviews, response);
 
-
+    bool run = true;
+    while(run){
+        cout << "Enter a review or press enter to exit: ";
+        string review;
+        getline(cin, review);
+        if (review == "") run = false;
+        else guessRating(reviews, review);
+    }
 
     return 0;
 }

@@ -38,9 +38,7 @@ struct CompareTreeNode
 // NOTE: The struct EncodedData is defined in the huffman_helper.h file
 
 void destroyTree(TreeNode* root){
-    if(root == nullptr){
-        return;
-    }
+    if(root == nullptr) return;
     destroyTree(root->left);
     destroyTree(root->right);
     delete root;
@@ -105,17 +103,6 @@ EncodedData compress(string text) {
     map<char, queue<Bit>> code;
     addPath(root, code, queue<Bit>());
 
-    //print out the map code
-//    for(auto it = code.begin(); it != code.end(); it++){
-//        cout << it->first << ": ";
-//        queue<Bit> q = it->second;
-//        while(!q.empty()){
-//            cout << q.front();
-//            q.pop();
-//        }
-//        cout << endl;
-//    }
-
     queue<Bit> encoded;
     for(char ch : text){
         queue<Bit> q = code[ch];
@@ -130,7 +117,6 @@ EncodedData compress(string text) {
     cout << encoded.size();
     flattenTree(data, root);
     destroyTree(root);
-
 
     return data;
 }

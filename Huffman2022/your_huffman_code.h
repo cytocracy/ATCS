@@ -64,7 +64,6 @@ void addPath(TreeNode* root, map<char, queue<Bit>>& paths, queue<Bit> currPath){
 }
 
 void flattenTree(EncodedData &data, TreeNode* root){
-    //pre order traversal
     if(root->left == nullptr && root->right == nullptr){
         data.treeShape.push(0);
         data.treeLeaves.push(root->ch);

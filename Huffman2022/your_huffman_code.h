@@ -23,19 +23,6 @@ struct CompareTreeNode
         return lhs->weight > rhs->weight;
     }
 };
-/* You need the unusual CompareTreeNode struct above if you want to make
- * a priority queue of TreeNodes.  (Hint: You do!)  This struct defines an
- * operator for comparing TreeNode*, which makes it possible for the
- * underlying heap for a priority queue to work correctly.  It's weird,
- * but here's the syntax you'll need:
-       priority_queue<TreeNode*, vector<TreeNode*>, CompareTreeNode> pq;
- * The first parameter describes what it is a priority queue of, the
- * second parameter describes the underlying heap implementation ("I'm
- * using a vector for this heap"), and the third parameter specifies a
- * way to compare TreeNode*.  Phew...
- */
-
-// NOTE: The struct EncodedData is defined in the huffman_helper.h file
 
 void destroyTree(TreeNode* root){
     if(root == nullptr) return;
@@ -73,6 +60,37 @@ void flattenTree(EncodedData &data, TreeNode* root){
     }
 }
 
+void huffmanAlg(priority_queue<TreeNode*, vector<TreeNode*>, CompareTreeNode> &pq){
+    while(pq.size() > 1){
+        TreeNode* left = pq.top();
+        pq.pop();
+        TreeNode* right = pq.top();
+        pq.pop();
+        TreeNode* parent = new TreeNode();
+        parent->left = left;
+        parent->right = right;
+        parent->weight = left->weight + right->weight;
+        pq.push(parent);
+    }
+}
+
+EncodedData createEncoding(map<char, queue<Bit>> &code, const string &text, TreeNode* &root){
+    queue<Bit> encoded;
+    for(char ch : text){
+        queue<Bit> q = code[ch];
+        while(!q.empty()){
+            encoded.push(q.front());
+            q.pop();
+        }
+    }
+
+    EncodedData data;
+    data.messageBits = encoded;
+    flattenTree(data, root);
+    destroyTree(root);
+    return data;
+}
+
 EncodedData compress(string text) {
     map<char, int> freq;
     for (char ch : text)
@@ -87,38 +105,13 @@ EncodedData compress(string text) {
         pq.push(node);
     }
 
-    while(pq.size() > 1){
-        TreeNode* left = pq.top();
-        pq.pop();
-        TreeNode* right = pq.top();
-        pq.pop();
-        TreeNode* parent = new TreeNode();
-        parent->left = left;
-        parent->right = right;
-        parent->weight = left->weight + right->weight;
-        pq.push(parent);
-    }
+    huffmanAlg(pq);
 
     TreeNode* root = pq.top();
     map<char, queue<Bit>> code;
     addPath(root, code, queue<Bit>());
 
-    queue<Bit> encoded;
-    for(char ch : text){
-        queue<Bit> q = code[ch];
-        while(!q.empty()){
-            encoded.push(q.front());
-            q.pop();
-        }
-    }
-
-    EncodedData data;
-    data.messageBits = encoded;
-    cout << encoded.size();
-    flattenTree(data, root);
-    destroyTree(root);
-
-    return data;
+    return createEncoding(code, text, root);
 }
 
 TreeNode* buildTree(EncodedData& data){
@@ -139,7 +132,6 @@ TreeNode* buildTree(EncodedData& data){
 
 string decompress(EncodedData& data) {
     TreeNode* root = buildTree(data);
-    cout << "Build tree done" << endl;
     string result;
 
     cout << "data.messageBits.size() = " << data.messageBits.size() << endl;

@@ -1,0 +1,3 @@
+/Users/kmorris/Desktop/Nifty C++ Tricks 2022/cmake-build-debug/CMakeFiles/Nifty_C___Tricks_2022.dir
+/Users/kmorris/Desktop/Nifty C++ Tricks 2022/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kmorris/Desktop/Nifty C++ Tricks 2022/cmake-build-debug/CMakeFiles/rebuild_cache.dir

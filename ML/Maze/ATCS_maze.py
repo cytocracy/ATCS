@@ -25,23 +25,28 @@ def maze_gen_neighbors(row, col, num_rows, num_cols, seen):
 # We'll code here!
 
 def maze_DFS(window, canvas, maze, start, goal):
-    '''
-    Solve a 2D maze using depth first search. Your method should return a path from the start 
-    to the end as a list of tuples.
+    curr = None
+    queue = [start]
+    parent = {start: None}
+    visited = {start}
 
-    Your method should also use the update_graphics method to update the graphics visualization as your code searches
-    the maze. update_graphics takes 3 parameters:
-    * the graphics window, window
-    * the graphics canvas, canvas
-    * the new location you've now visited, passed in using new_loc = location
-    
-    The function call of update_graphics would look something like:
-
-    location_ive_seen = (0,0) # whatever location you want to mark that you've visited
-    update_graphics(window, canvas, new_loc=location_ive_seen)
-    '''
-    pass # DELETE THIS AND PUT YOUR CODE!
-
+    while queue:
+        curr = queue.pop(0)
+        row, col = curr
+        for n in neighbors(maze, row, col):
+            if n == goal:
+                parent[n] = curr
+                path = [n]
+                current_node = n
+                while current_node != start:
+                    current_node = parent[current_node]
+                    path.append(current_node)
+                return path[::-1]
+            if n not in visited:
+                queue = [n] + queue
+                visited.add(n)
+                parent[n] = curr
+                update_graphics(window, canvas, new_loc=n)
 
 def maze_BFS(window, canvas, maze, start, goal):
     curr = None
@@ -73,9 +78,9 @@ if __name__ == "__main__":
 
     # feel free to change the maze size to test out different mazes!
     
-    window, canvas, maze, start, goal = make_maze(maze_size = "small") # change the map size to see different ones!
+    window, canvas, maze, start, goal = make_maze(maze_size = "large") # change the map size to see different ones!
 
-    path = maze_BFS(window, canvas, maze, start, goal)
+    path = maze_DFS(window, canvas, maze, start, goal)
     if path != None:
         update_graphics(window, canvas, path=path)
         print(path)

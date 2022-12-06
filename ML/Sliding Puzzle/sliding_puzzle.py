@@ -104,7 +104,25 @@ def to_tuple(puzzle):
 ##############################################################################################
 ### --------------------------- Helper Functions (you write!) ---------------------------- ###
 ##############################################################################################
+def neighbors(puzzle):
+	neigbhors = []
+	b = find_blank(puzzle)
+	for i,j in [(b[0]+1, b[1]), (b[0]-1, b[1]), (b[0], b[1]+1), (b[0], b[1]-1)]:
+		if 0<=i<len(puzzle) and 0<=j<len(puzzle[0]):
+			new_puzzle = deepcopy(puzzle)
+			new_puzzle[b[0]][b[1]] = new_puzzle[i][j]
+			new_puzzle[i][j]=0
+			neigbhors.append(new_puzzle)
+	return neigbhors
 
+def to_list(tuple_puzzle):
+	return list(map(list, tuple_puzzle))
+
+def get_path(parents, start, end):
+	path = [end]
+	while path[-1] != start:
+		path.append(parents[path[-1]])
+	return path[::-1]
 
 
 # put any other helper functions you need here!
@@ -131,7 +149,34 @@ def solve_puzzle(puzzle, heuristic=None):
 	For Part 1: If there is a heuristic function passed in, your function 
 	should use the heuristic to decide what is most important to take off the queue next.
 	'''
-	raise NotImplementedError
+	tuple_puzzle = to_tuple(puzzle)
+	curr = None
+	queue = [puzzle]
+	parent = {tuple_puzzle: None}
+	visited = {tuple_puzzle}
+
+	while queue:
+		curr = queue.pop(0)
+		for n in neighbors(to_list(curr)):
+			if check_victory(n):
+				parent[to_tuple(n)] = curr
+				path = [to_tuple(n)]
+				current_node = n
+				while current_node != puzzle:
+					current_node = parent[to_tuple(current_node)]
+					path.append(current_node)
+				path = path[::-1]
+				for node in path:
+					print_puzzle(node)
+					print()
+				return path
+			if to_tuple(n) not in visited:
+				queue.append(n)
+				visited.add(to_tuple(n))
+				parent[to_tuple(n)] = curr
+
+		if heuristic:
+			queue.sort(key=lambda x: heuristic(x))
 
 
 # Part 2!
@@ -142,19 +187,33 @@ def solve_puzzle(puzzle, heuristic=None):
 
 def num_incorrect_locations(puzzle):
 	'''
-	This function should return the number of tiles that are NOT in the correct position (the 
-	position they should be in if the game was over, aka the winning confirguration)
+	This function should return the number of tiles that are not in their correct position.
 	'''
-	raise NotImplementedError
+	sum = 0
+	for i in range(len(puzzle)):
+		for j in range(len(puzzle[0])):
+			if i==len(puzzle)-1 and j==len(puzzle[0])-1:
+				if puzzle[i][j]!=0:
+					sum+=1
+			elif puzzle[i][j]!=i*len(puzzle[0]) + j+1:
+				sum+=1
+	return sum
 
 
 def tile_manhattan_distance(puzzle):
 	'''
-	This function should return the sum of the manhattan distances between each tile and 
-	its correct position (the position it should be in if the game was over, aka the 
-	winning confirguration). 
+	This function should return the sum of the manhattan distances of each tile from its
+	correct position.
 	'''
-	raise NotImplementedError
+	sum = 0
+	for i in range(len(puzzle)):
+		for j in range(len(puzzle[0])):
+			if i==len(puzzle)-1 and j==len(puzzle[0])-1:
+				if puzzle[i][j]!=0:
+					sum+=abs(i-(puzzle[i][j]-1)//len(puzzle[0])) + abs(j-(puzzle[i][j]-1)%len(puzzle[0]))
+			elif puzzle[i][j]!=i*len(puzzle[0]) + j+1:
+				sum+=abs(i-(puzzle[i][j]-1)//len(puzzle[0])) + abs(j-(puzzle[i][j]-1)%len(puzzle[0]))
+	return sum
 
 
 

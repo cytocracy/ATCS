@@ -74,8 +74,10 @@ def play_game(n, player):
 		if player == "solve":
 			path = board_config_to_path(solve_puzzle(board))
 		elif player == "solveLocation":
+			print("num_incorrect_locations")
 			path = board_config_to_path(solve_puzzle(board, heuristic=num_incorrect_locations))
 		elif player == "solveDistance":
+			print("tile_manhattan_distance")
 			path = board_config_to_path(solve_puzzle(board, heuristic=tile_manhattan_distance))
 		
 
